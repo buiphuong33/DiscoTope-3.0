@@ -490,6 +490,7 @@ def get_atomarray_res_sasa(atom_array):
     # Extract SASA
     # The following line calculates the atom-wise SASA of the atom array
     atom_sasa = biotite.structure.sasa(atom_array, vdw_radii="ProtOr")
+    #atom_sasa = biotite.structure.sasa(atom_array, vdw_radii="Single")
 
     # Sum up SASA for each residue in atom array. Exclude nans with np.nansun
     res_sasa = biotite.structure.apply_residue_wise(atom_array, atom_sasa, np.nansum)
@@ -779,8 +780,8 @@ class Discotope_Dataset_web(torch.utils.data.Dataset):
         except Exception as E:
             log.error(f"Error processing chain {pdb_id}: {E}")
 
-            if self.verbose >= 2:
-                traceback.print_exc()
+            #if self.verbose >= 2:
+            traceback.print_exc()
 
             return False
 

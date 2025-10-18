@@ -201,6 +201,8 @@ python discotope3/main.py \
 
 # Troubleshooting
 
+- **KeyError: "RESIDUE ILE DOES NOT CONAIN ATOM "CD"** - Some applications (e.g. in MD) use different PDB ATOM names than biotite.structure.sasa expects. Fixed by renaming ATOM names e.g. "CD  ILE" -> "CD1 ILE " or "OT1" -> "O  " and "OT2" -> "OTX"
+- **KeyError: "Residue 'CYS' does not contain an atom named 'OT1'"** - See above
 - **No valid amino-acid backbone found"** - DiscoTope-3.0 only predicts epitopes on amino-acids, not on non-amino acid entities like heteroatoms (e.g. water, solvents like dimethyl sulfoxide). These chains should not be specified as input. 
 - **PDBConstructionWarning regarding discontinuous chains** - Common issue with some PDB files (experimental structures only) missing co-ordinates for some atoms. As long as no backbone co-ordinates (C, Ca, N) are missing, it does not impact predictions.
 
