@@ -2,6 +2,7 @@ from setuptools import find_packages, setup
 
 REQUIREMENTS = [i.strip() for i in open("requirements.txt").readlines()]
 
+
 setup(
     name="discotope3",
     version="1.0",
